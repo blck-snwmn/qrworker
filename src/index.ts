@@ -1,18 +1,65 @@
-/**
- * Welcome to Cloudflare Workers! This is your first worker.
- *
- * - Run `npm run dev` in your terminal to start a development server
- * - Open a browser tab at http://localhost:8787/ to see your worker in action
- * - Run `npm run deploy` to publish your worker
- *
- * Bind resources to your worker in `wrangler.toml`. After adding bindings, a type definition for the
- * `Env` object can be regenerated with `npm run cf-typegen`.
- *
- * Learn more at https://developers.cloudflare.com/workers/
- */
+import { WorkerEntrypoint } from "cloudflare:workers";
+import { Resvg, initWasm } from "@resvg/resvg-wasm";
+//@ts-ignore
+import resvgWasm from "./vendor/index_bg.wasm";
+import { Hono } from "hono";
+import { z } from "zod";
+import { zValidator } from "@hono/zod-validator";
+import QRCode from "qrcode";
 
-export default {
-	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-		return new Response('Hello World!');
-	},
-};
+// initialize resvg
+await initWasm(resvgWasm);
+
+const schema = z.object({
+	value: z.string().min(1).max(500),
+	fitTo: z.object({
+		mode: z.literal("original")
+	}).or(z.object({
+		mode: z.literal("width"),
+		value: z.number().int().positive()
+	}))
+});
+
+type Schema = z.infer<typeof schema>;
+
+async function generate(schema: Schema) {
+	const { value, fitTo } = schema;
+	const svg = await QRCode.toString(value, { type: "svg" });
+
+	const resvg = new Resvg(svg, {
+		fitTo: fitTo,
+	});
+
+	const pngData = resvg.render();
+	const pngBuffer = pngData.asPng();
+	return pngBuffer;
+}
+
+export class GenerateService extends WorkerEntrypoint {
+	async generate(profile: Schema) {
+		schema.parse(profile);
+		return await generate(profile);
+	}
+}
+
+const app = new Hono();
+
+app.post("/generate", zValidator("json", schema), async (c) => {
+	const schema = c.req.valid("json");
+	try {
+		const pngBuffer = await generate(schema);
+		return new Response(pngBuffer, {
+			headers: {
+				"Content-Type": "image/png",
+			},
+		});
+
+	} catch (error) {
+		console.error(error);
+		return new Response("err", {
+			status: 500
+		})
+	}
+});
+
+export default app;

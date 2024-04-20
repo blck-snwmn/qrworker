@@ -16,6 +16,7 @@ jobs:
       - uses: pnpm/action-setup@v3
         with:
           version: 8
+          run_install: true
       - name: move index_bg.wasm
         run: cp node_modules/@resvg/resvg-wasm/index_bg.wasm ./src/vendor
       - name: Deploy

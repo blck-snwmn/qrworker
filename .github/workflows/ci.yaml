@@ -1,0 +1,17 @@
+name: Lint & Format & Test
+
+on:
+  push:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: true
+      - name: lint
+        run: |
+          pnpm biome ci .

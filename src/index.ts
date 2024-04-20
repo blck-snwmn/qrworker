@@ -1,23 +1,27 @@
 import { WorkerEntrypoint } from "cloudflare:workers";
+import { zValidator } from "@hono/zod-validator";
 import { Resvg, initWasm } from "@resvg/resvg-wasm";
+import { Hono } from "hono";
+import QRCode from "qrcode";
+import { z } from "zod";
 //@ts-ignore
 import resvgWasm from "./vendor/index_bg.wasm";
-import { Hono } from "hono";
-import { z } from "zod";
-import { zValidator } from "@hono/zod-validator";
-import QRCode from "qrcode";
 
 // initialize resvg
 await initWasm(resvgWasm);
 
 const schema = z.object({
 	value: z.string().min(1).max(500),
-	fitTo: z.object({
-		mode: z.literal("original")
-	}).or(z.object({
-		mode: z.literal("width"),
-		value: z.number().int().positive()
-	}))
+	fitTo: z
+		.object({
+			mode: z.literal("original"),
+		})
+		.or(
+			z.object({
+				mode: z.literal("width"),
+				value: z.number().int().positive(),
+			}),
+		),
 });
 
 type Schema = z.infer<typeof schema>;
@@ -53,12 +57,11 @@ app.post("/generate", zValidator("json", schema), async (c) => {
 				"Content-Type": "image/png",
 			},
 		});
-
 	} catch (error) {
 		console.error(error);
 		return new Response("err", {
-			status: 500
-		})
+			status: 500,
+		});
 	}
 });
 

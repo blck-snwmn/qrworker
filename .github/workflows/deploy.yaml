@@ -19,6 +19,8 @@ jobs:
           run_install: true
       - name: move index_bg.wasm
         run: cp node_modules/@resvg/resvg-wasm/index_bg.wasm ./src/vendor
+      - name: ls
+        run: ls -al
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:

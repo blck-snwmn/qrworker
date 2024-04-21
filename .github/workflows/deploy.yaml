@@ -21,6 +21,10 @@ jobs:
         run: cp node_modules/@resvg/resvg-wasm/index_bg.wasm ./src/vendor
       - name: ls
         run: ls -al
+      - name: ls
+        run: ls src -al
+      - name: ls
+        run: ls src/vendor -al
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:

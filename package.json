@@ -10,18 +10,18 @@
 		"cf-typegen": "wrangler types"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.7.3",
-		"@cloudflare/vitest-pool-workers": "^0.4.0",
-		"@cloudflare/workers-types": "^4.20240529.0",
+		"@biomejs/biome": "^1.8.3",
+		"@cloudflare/vitest-pool-workers": "^0.4.7",
+		"@cloudflare/workers-types": "^4.20240620.0",
 		"@types/qrcode": "^1.5.5",
-		"typescript": "^5.0.4",
+		"typescript": "^5.5.2",
 		"vitest": "1.6.0",
-		"wrangler": "^3.58.0"
+		"wrangler": "^3.62.0"
 	},
 	"dependencies": {
 		"@hono/zod-validator": "^0.2.2",
 		"@resvg/resvg-wasm": "^2.6.2",
-		"hono": "^4.4.2",
+		"hono": "^4.4.10",
 		"qrcode": "^1.5.3",
 		"zod": "^3.23.8"
 	}

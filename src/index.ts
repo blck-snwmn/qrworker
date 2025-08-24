@@ -1,6 +1,6 @@
 import { WorkerEntrypoint } from "cloudflare:workers";
 import { zValidator } from "@hono/zod-validator";
-import { Resvg, initWasm } from "@resvg/resvg-wasm";
+import { initWasm, Resvg } from "@resvg/resvg-wasm";
 import { Hono } from "hono";
 import QRCode from "qrcode";
 import { z } from "zod";

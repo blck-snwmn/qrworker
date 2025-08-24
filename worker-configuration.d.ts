@@ -1,2 +1,2 @@
-// biome-ignore lint/complexity/noBannedTypes: <explanation>
+// biome-ignore lint/complexity/noBannedTypes: generate wrangler command
 type Env = {};

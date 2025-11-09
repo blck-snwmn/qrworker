@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: ^0.7.2
-        version: 0.7.4(hono@4.10.3)(zod@4.1.0)
+        version: 0.7.4(hono@4.10.3)(zod@4.1.12)
       '@resvg/resvg-wasm':
         specifier: ^2.6.2
         version: 2.6.2
@@ -22,7 +22,7 @@ importers:
         version: 1.5.4
       zod:
         specifier: ^4.1.0
-        version: 4.1.0
+        version: 4.1.12
     devDependencies:
       '@biomejs/biome':
         specifier: 2.2.7
@@ -1301,8 +1301,8 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
-  zod@4.1.0:
-    resolution: {integrity: sha512-UWxluYj2IDX9MHRXTMbB/2eeWrAMmmMSESM+MfT9MQw8U1qo9q5ASW08anoJh6AJ7pkt099fLdNFmfI+4aChHg==}
+  zod@4.1.12:
+    resolution: {integrity: sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ==}
 
 snapshots:
 
@@ -1568,10 +1568,10 @@ snapshots:
   '@esbuild/win32-x64@0.25.9':
     optional: true
 
-  '@hono/zod-validator@0.7.4(hono@4.10.3)(zod@4.1.0)':
+  '@hono/zod-validator@0.7.4(hono@4.10.3)(zod@4.1.12)':
     dependencies:
       hono: 4.10.3
-      zod: 4.1.0
+      zod: 4.1.12
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
@@ -2360,4 +2360,4 @@ snapshots:
 
   zod@3.25.76: {}
 
-  zod@4.1.0: {}
+  zod@4.1.12: {}

@@ -10,7 +10,7 @@
 		"cf-typegen": "wrangler types"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.2.6",
+		"@biomejs/biome": "2.2.7",
 		"@cloudflare/vitest-pool-workers": "0.8.71",
 		"@cloudflare/workers-types": "4.20250823.0",
 		"@types/qrcode": "1.5.5",

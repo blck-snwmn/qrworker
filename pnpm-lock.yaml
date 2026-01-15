@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: ^0.7.2
-        version: 0.7.6(hono@4.10.8)(zod@4.1.13)
+        version: 0.7.6(hono@4.11.4)(zod@4.1.13)
       '@resvg/resvg-wasm':
         specifier: ^2.6.2
         version: 2.6.2
       hono:
         specifier: ^4.9.4
-        version: 4.10.8
+        version: 4.11.4
       qrcode:
         specifier: ^1.5.4
         version: 1.5.4
@@ -1093,8 +1093,8 @@ packages:
   glob-to-regexp@0.4.1:
     resolution: {integrity: sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==}
 
-  hono@4.10.8:
-    resolution: {integrity: sha512-DDT0A0r6wzhe8zCGoYOmMeuGu3dyTAE40HHjwUsWFTEy5WxK1x2WDSsBPlEXgPbRIFY6miDualuUDbasPogIww==}
+  hono@4.11.4:
+    resolution: {integrity: sha512-U7tt8JsyrxSRKspfhtLET79pU8K+tInj5QZXs1jSugO1Vq5dFj3kmZsRldo29mTBfcjDRVRXrEZ6LS63Cog9ZA==}
     engines: {node: '>=16.9.0'}
 
   is-arrayish@0.3.2:
@@ -1784,9 +1784,9 @@ snapshots:
   '@esbuild/win32-x64@0.27.0':
     optional: true
 
-  '@hono/zod-validator@0.7.6(hono@4.10.8)(zod@4.1.13)':
+  '@hono/zod-validator@0.7.6(hono@4.11.4)(zod@4.1.13)':
     dependencies:
-      hono: 4.10.8
+      hono: 4.11.4
       zod: 4.1.13
 
   '@img/sharp-darwin-arm64@0.33.5':
@@ -2182,7 +2182,7 @@ snapshots:
 
   glob-to-regexp@0.4.1: {}
 
-  hono@4.10.8: {}
+  hono@4.11.4: {}
 
   is-arrayish@0.3.2: {}
 

@@ -12,6 +12,7 @@ jobs:
         with:
           version: 8
           run_install: true
+      - name: fmt check
+        run: pnpm run fmt:check
       - name: lint
-        run: |
-          pnpm biome ci .
+        run: pnpm run lint

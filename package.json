@@ -22,7 +22,7 @@
 		"oxlint-tsgolint": "0.22.1",
 		"typescript": "5.9.3",
 		"vitest": "4.0.16",
-		"wrangler": "4.59.1"
+		"wrangler": "4.59.3"
 	},
 	"dependencies": {
 		"@hono/zod-validator": "^0.7.2",

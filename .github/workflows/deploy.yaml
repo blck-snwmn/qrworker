@@ -24,7 +24,7 @@ jobs:
       - name: move index_bg.wasm
         run: mkdir -p ./src/vendor && cp node_modules/@resvg/resvg-wasm/index_bg.wasm ./src/vendor/index_bg.wasm
       - name: Deploy
-        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3.15.0
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
           packageManager: pnpm
           apiToken: ${{ secrets.CF_API_TOKEN }}

@@ -15,18 +15,18 @@
 		"fmt:check": "oxfmt --check src/ test/"
 	},
 	"devDependencies": {
-		"@cloudflare/vitest-pool-workers": "0.12.12",
-		"@cloudflare/workers-types": "4.20250823.0",
+		"@cloudflare/vitest-pool-workers": "0.12.21",
+		"@cloudflare/workers-types": "4.20260610.1",
 		"@types/qrcode": "1.5.6",
-		"oxfmt": "^0.48.0",
-		"oxlint": "^1.63.0",
-		"oxlint-tsgolint": "^0.22.1",
-		"typescript": "5.9.3",
-		"vitest": "4.0.16",
-		"wrangler": "4.59.1"
+		"oxfmt": "0.54.0",
+		"oxlint": "1.69.0",
+		"oxlint-tsgolint": "0.23.0",
+		"typescript": "6.0.3",
+		"vitest": "4.1.8",
+		"wrangler": "4.99.0"
 	},
 	"dependencies": {
-		"@hono/zod-validator": "^0.7.2",
+		"@hono/zod-validator": "^0.8.0",
 		"@resvg/resvg-wasm": "^2.6.2",
 		"hono": "^4.9.4",
 		"qrcode": "^1.5.4",

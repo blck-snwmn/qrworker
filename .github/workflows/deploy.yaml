@@ -20,11 +20,10 @@ jobs:
       - uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
         with:
           run_install: true
-      - name: move index_bg.wasm
-        run: mkdir -p ./src/vendor && cp node_modules/@resvg/resvg-wasm/index_bg.wasm ./src/vendor/index_bg.wasm
+      - name: Prepare wasm asset
+        run: pnpm run prepare:wasm
       - name: Deploy
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
           packageManager: pnpm
           apiToken: ${{ secrets.CF_API_TOKEN }}
-

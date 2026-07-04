@@ -5,10 +5,12 @@
 	"packageManager": "pnpm@11",
 	"scripts": {
 		"deploy": "wrangler deploy",
+		"build": "wrangler deploy --dry-run --outdir dist",
 		"dev": "wrangler dev",
 		"start": "wrangler dev",
 		"test": "vitest",
-		"cf-typegen": "wrangler types",
+		"cf-typegen": "wrangler types --include-runtime=false",
+		"prepare:wasm": "mkdir -p ./src/vendor && cp node_modules/@resvg/resvg-wasm/index_bg.wasm ./src/vendor/index_bg.wasm",
 		"lint": "oxlint --deny-warnings .",
 		"lint:fix": "oxlint --deny-warnings . --fix",
 		"fmt": "oxfmt --write src/ test/",

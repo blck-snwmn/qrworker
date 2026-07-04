@@ -1,4 +1,4 @@
-name: Lint
+name: CI
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 permissions:
   contents: read
 jobs:
-  lint:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
@@ -15,15 +15,12 @@ jobs:
           persist-credentials: false
       - uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
         with:
-          run_install: true
+          run_install: false
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run prepare:wasm
       - run: pnpm run lint
-  fmt:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-        with:
-          persist-credentials: false
-      - uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
-        with:
-          run_install: true
       - run: pnpm run fmt:check
+      - run: pnpm run cf-typegen
+      - run: git diff --exit-code -- worker-configuration.d.ts
+      - run: pnpm run test
+      - run: pnpm run build

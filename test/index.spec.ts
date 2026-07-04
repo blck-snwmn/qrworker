@@ -1,25 +1,40 @@
-// test/index.spec.ts
 import { createExecutionContext, env, SELF, waitOnExecutionContext } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
 import worker from "../src/index";
 
-// For now, you'll need to do something like this to get a correctly-typed
-// `Request` to pass to `worker.fetch()`.
 const IncomingRequest = Request<unknown, IncomingRequestCfProperties>;
+const payload = {
+	value: "https://example.com",
+	fitTo: { mode: "width", value: 128 },
+};
 
-describe("Hello World worker", () => {
-	it("responds with Hello World! (unit style)", async () => {
-		const request = new IncomingRequest("http://example.com");
-		// Create an empty context to pass to `worker.fetch()`.
+async function expectPngResponse(response: Response) {
+	expect(response.status).toBe(200);
+	expect(response.headers.get("content-type")).toBe("image/png");
+
+	const bytes = new Uint8Array(await response.arrayBuffer());
+	expect(Array.from(bytes.slice(0, 8))).toEqual([137, 80, 78, 71, 13, 10, 26, 10]);
+}
+
+describe("QR worker", () => {
+	it("generates a QR PNG with the worker export", async () => {
+		const request = new IncomingRequest("http://example.com/generate", {
+			method: "POST",
+			headers: { "content-type": "application/json" },
+			body: JSON.stringify(payload),
+		});
 		const ctx = createExecutionContext();
 		const response = await worker.fetch(request, env, ctx);
-		// Wait for all `Promise`s passed to `ctx.waitUntil()` to settle before running test assertions
 		await waitOnExecutionContext(ctx);
-		expect(await response.text()).toMatchInlineSnapshot(`"Hello World!"`);
+		await expectPngResponse(response);
 	});
 
-	it("responds with Hello World! (integration style)", async () => {
-		const response = await SELF.fetch("https://example.com");
-		expect(await response.text()).toMatchInlineSnapshot(`"Hello World!"`);
+	it("generates a QR PNG through the worker runtime", async () => {
+		const response = await SELF.fetch("https://example.com/generate", {
+			method: "POST",
+			headers: { "content-type": "application/json" },
+			body: JSON.stringify(payload),
+		});
+		await expectPngResponse(response);
 	});
 });

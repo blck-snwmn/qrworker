@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: ^0.8.0
-        version: 0.8.0(hono@4.12.27)(zod@4.4.3)
+        version: 0.8.0(hono@4.12.28)(zod@4.4.3)
       '@resvg/resvg-wasm':
         specifier: ^2.6.2
         version: 2.6.2
       hono:
         specifier: ^4.9.4
-        version: 4.12.27
+        version: 4.12.28
       qrcode:
         specifier: ^1.5.4
         version: 1.5.4
@@ -1172,8 +1172,8 @@ packages:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
     engines: {node: 6.* || 8.* || >= 10.*}
 
-  hono@4.12.27:
-    resolution: {integrity: sha512-1yrb/+w6HWQJrUCLkJ2IF5jNIPvvFkblV5RNOYl6bV+OA6p9GLcMpHFFGTosSvHvcAUibuUukRqhlYI4z32C7Q==}
+  hono@4.12.28:
+    resolution: {integrity: sha512-YwUvVpSF7m1yOblFPrU3Hbo8XhPheBoiyfGuII6z19LnOr6JpDnyyp7LFNrfV56wS8tpvtBFGRISHN02pDdLOA==}
     engines: {node: '>=16.9.0'}
 
   is-fullwidth-code-point@3.0.0:
@@ -1712,9 +1712,9 @@ snapshots:
   '@esbuild/win32-x64@0.28.1':
     optional: true
 
-  '@hono/zod-validator@0.8.0(hono@4.12.27)(zod@4.4.3)':
+  '@hono/zod-validator@0.8.0(hono@4.12.28)(zod@4.4.3)':
     dependencies:
-      hono: 4.12.27
+      hono: 4.12.28
       zod: 4.4.3
 
   '@img/colour@1.0.0': {}
@@ -2226,7 +2226,7 @@ snapshots:
 
   get-caller-file@2.0.5: {}
 
-  hono@4.12.27: {}
+  hono@4.12.28: {}
 
   is-fullwidth-code-point@3.0.0: {}
 

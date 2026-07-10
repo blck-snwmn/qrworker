@@ -52,6 +52,7 @@ build/Release
 
 node_modules/
 jspm_packages/
+src/vendor/
 
 # Snowpack dependency directory (https://snowpack.dev/)
 

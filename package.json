@@ -2,7 +2,7 @@
 	"name": "qrworker",
 	"version": "0.0.0",
 	"private": true,
-	"packageManager": "pnpm@11.17.0",
+	"packageManager": "pnpm@11.18.0",
 	"scripts": {
 		"deploy": "wrangler deploy",
 		"build": "wrangler deploy --dry-run --outdir dist",

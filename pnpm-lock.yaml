@@ -168,7 +168,7 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: 0.9.1
-        version: 0.9.1(hono@4.13.7)(zod@4.5.4)
+        version: 0.9.1(hono@4.13.7)(zod@4.6.0)
       '@resvg/resvg-wasm':
         specifier: 2.6.2
         version: 2.6.2
@@ -179,8 +179,8 @@ importers:
         specifier: 1.5.4
         version: 1.5.4
       zod:
-        specifier: 4.5.4
-        version: 4.5.4
+        specifier: 4.6.0
+        version: 4.6.0
     devDependencies:
       '@cloudflare/vitest-pool-workers':
         specifier: 0.22.0
@@ -1834,8 +1834,8 @@ packages:
   zod@4.4.3:
     resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
 
-  zod@4.5.4:
-    resolution: {integrity: sha512-sC95tT5iHHH9gtpj6A81kh+NEaRAUFN+qlUPDUbRfOMvNf5QCBqsb3WgvnpVtK5Y+4UfA6KqufotuTvMGiTlsA==}
+  zod@4.6.0:
+    resolution: {integrity: sha512-iIvwyDnebKYpww2ta0DjaNOL8RnVLmPMhgWyOzlW9y0EIIxv5gl+H6Y0ONpt83HqjGqkk78uWp6xWtpxzZdPbw==}
 
 snapshots:
 
@@ -2063,10 +2063,10 @@ snapshots:
   '@esbuild/win32-x64@0.28.1':
     optional: true
 
-  '@hono/zod-validator@0.9.1(hono@4.13.7)(zod@4.5.4)':
+  '@hono/zod-validator@0.9.1(hono@4.13.7)(zod@4.6.0)':
     dependencies:
       hono: 4.13.7
-      zod: 4.5.4
+      zod: 4.6.0
 
   '@img/colour@1.1.0': {}
 
@@ -3055,4 +3055,4 @@ snapshots:
 
   zod@4.4.3: {}
 
-  zod@4.5.4: {}
+  zod@4.6.0: {}
